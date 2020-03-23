@@ -4,6 +4,12 @@ const { hashPassword } = require("../../helpers/encryption/encrypt.encryption");
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
