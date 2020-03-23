@@ -4,11 +4,32 @@ const { hashPassword } = require("../../helpers/encryption/encrypt.encryption");
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    email: DataTypes.STRING,
-    fullName: DataTypes.STRING,
-    username: DataTypes.STRING,
-    password: DataTypes.TEXT,
-    profile_pic: DataTypes.TEXT
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+        min: 3
+      }
+    },
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.TEXT,
+      allowNull:false
+    },
+    profile_pic: {
+      type: DataTypes.TEXT,
+      defaultValue: "https://elitebasketballny.com/wp-content/uploads/2018/07/profile-placeholder.png"
+    }
   }, {
     hooks: {
       beforeCreate: async (user) => {
