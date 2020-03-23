@@ -2,8 +2,8 @@
 
 require('dotenv').config()
 
-const { hashManyPasswords } = require("../../helpers/encryption/encrypt");
-const {getUsers} = require("../../helpers/seed/user-builder");
+const { hashManyPasswords } = require("../../helpers/encryption/encrypt.encryption");
+const {getUsers} = require("../../helpers/seed-builder/user-builder.seeder");
 
 
 
@@ -19,7 +19,11 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-
+   return getUsers().then(users => {
+    return hashManyPasswords(users).then(() => {
+      return queryInterface.bulkInsert("Users", users);
+    }) 
+  })
 
   },
 

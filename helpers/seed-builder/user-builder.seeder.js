@@ -13,7 +13,7 @@ const _ = require("lodash");
  */
 
 async function getUsers() {
-    return await axios.get('https://randomuser.me/api/?results=100')
+    return await axios.get('https://randomuser.me/api/?results=20')
       .then(data => {
           let seeds = [];
           let users = data.data.results;
