@@ -14,8 +14,7 @@ module.exports = {
         unique: false
       },
       fullName: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       username: {
         type: Sequelize.STRING,

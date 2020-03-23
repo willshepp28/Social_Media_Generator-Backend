@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "undo-migrate": "npx sequelize-cli db:migrate:undo && npx sequelize-cli db:migrate",
+    "db": "psql social-media-generator"
   },
   "author": "Will Sheppard",
   "license": "ISC",
