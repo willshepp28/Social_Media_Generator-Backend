@@ -1,7 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Follower = sequelize.define('Follower', {
-    request_accepted: DataTypes.BOOLEAN
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4
+    },
+    request_accepted: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {});
   Follower.associate = function(models) {
     // associations can be defined here
