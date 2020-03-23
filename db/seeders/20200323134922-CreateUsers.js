@@ -1,5 +1,12 @@
 'use strict';
 
+require('dotenv').config()
+
+const { hashManyPasswords } = require("../../helpers/encryption/encrypt");
+const {getUsers} = require("../../helpers/seed/user-builder");
+
+
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     /*
@@ -12,6 +19,8 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+
+
   },
 
   down: (queryInterface, Sequelize) => {
