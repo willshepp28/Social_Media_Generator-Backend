@@ -3,10 +3,18 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Posts', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: DataTypes.UUID,
+        allowNull: false,
+        defaultValue: DataTypes.UUIDV4
+      },
+      user_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: "Users",
+          key: "id"
+        }
       },
       caption: {
         type: Sequelize.TEXT

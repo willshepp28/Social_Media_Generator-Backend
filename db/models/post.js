@@ -1,6 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define('Post', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4
+    },
     caption: DataTypes.TEXT,
     photo_url: DataTypes.TEXT
   }, {});
