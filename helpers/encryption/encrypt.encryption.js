@@ -16,8 +16,8 @@ async function hashPassword(password){
   return bcrypt.hashSync(password, parseInt(process.env.SALT_ROUNDS))
 }
 
-async function comparePasswordtoHash(password, hash){
-  return bcrypt.compareSync(password, hash)
+function comparePasswordtoHash(password, hash){
+  return  bcrypt.compareSync(password, hash)
 }
 
 
