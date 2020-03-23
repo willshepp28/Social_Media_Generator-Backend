@@ -5,7 +5,12 @@ const _ = require("lodash");
 
 
 
-
+/**
+ *  getUsers populates the database with 100 users
+ * 
+ *  1. Users axios to make a http request to randomuser api
+ *  2. Pushs each user in the seeds array then returns to results
+ */
 
 async function getUsers() {
     return await axios.get('https://randomuser.me/api/?results=100')
