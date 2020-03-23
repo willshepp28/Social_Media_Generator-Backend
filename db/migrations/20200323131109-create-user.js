@@ -14,16 +14,21 @@ module.exports = {
         unique: false
       },
       fullName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
       },
       password: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       profile_pic: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        defaultValue: "https://elitebasketballny.com/wp-content/uploads/2018/07/profile-placeholder.png"
       },
       createdAt: {
         allowNull: false,

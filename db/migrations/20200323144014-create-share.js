@@ -8,6 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      user_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: "Users",
+          key: "id"
+        }
+      },
+      post_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: "Posts",
+          key: "id"
+        }
+      },
       caption: {
         type: Sequelize.TEXT
       },

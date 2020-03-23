@@ -1,6 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Share = sequelize.define('Share', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4
+    },
     caption: DataTypes.TEXT
   }, {});
   Share.associate = function(models) {
