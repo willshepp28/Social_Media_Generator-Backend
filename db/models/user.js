@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Comment, { foreignKey: 'user_id'});
     User.hasMany(models.Follower, { foreignKey: 'user_id'})
     User.hasMany(models.Follower, { foreignKey: 'follower_id'});
-    User.hasMany(models.Likes, { foreignKey: 'user_id'});
+    User.hasMany(models.Like, { foreignKey: 'user_id'});
     User.hasMany(models.Share, { foreignKey: 'user_id'})
     User.hasMany(models.Save, { foreignKey: 'user_id'})
   };
