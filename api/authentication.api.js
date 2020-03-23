@@ -2,7 +2,7 @@ const router = require("express").Router();
 const models = require("../db/models");
 const _ = require("lodash");
 const {validateRegisterInputs, validateLoginInputs} = require("../helpers/validators/authentication-input.validator");
-const comparePasswordToHash = require("../helpers/encryption/encrypt.encryption");
+const { comparePasswordtoHash } = require("../helpers/encryption/encrypt.encryption");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 
@@ -33,7 +33,7 @@ router.post("/login", (request, response) => {
     const inputs = validateLoginInputs(request.body, response);
 
    models.User.findOne({
-       where: { fullName: inputs.value.fullName}
+       where: { email: inputs.value.email}
    })
    .then(async (user) => {
 
@@ -52,7 +52,7 @@ router.post("/login", (request, response) => {
     const token = jwt.sign({id: user.dataValues.id}, fs.readFileSync("./eprivate.key", "utf-8"), {expiresIn: 86400})
     return response.status(200).json({
         id: user.dataValues.id,
-        fullName: user.dataValues.fullName,
+        username: user.dataValues.username,
         token: token
     });
     
