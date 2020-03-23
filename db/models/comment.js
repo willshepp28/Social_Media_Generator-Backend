@@ -1,6 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define('Comment', {
+    id: {
+      primaryKey: true,
+      type: DataTypes.UUID,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4
+    },
     reply: DataTypes.TEXT
   }, {});
   Comment.associate = function(models) {
