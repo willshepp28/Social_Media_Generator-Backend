@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "undo-migrate": "npx sequelize-cli db:migrate:undo && npx sequelize-cli db:migrate",
-    "db": "psql social-media-generator"
+    "db": "psql social-media-generator",
+    "dyno": "heroku ps:scale web=1"
   },
   "author": "Will Sheppard",
   "license": "ISC",
